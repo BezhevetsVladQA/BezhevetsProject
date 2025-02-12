@@ -1,0 +1,98 @@
+ #001 Add a product to the bag
+
+Precondition:
+ 1. The site [https://shop-drevol.vercel.app/] is opened
+ 2. There are products in stock
+
+Steps:
+ 1. Open the burger menu
+ 2. Select a products category (e.g. Body care)
+ 3. Click on the "ADD TO BAG" button under a product
+
+
+Expected result:
+ 1. The "Product added to cart" notification is displayed
+ 2. A number of added products is displayed next to the Bag icon
+ 3. The added product with its price is displayed in the bag
+
+
+Post condition:
+ 1. Delete the product from the bag
+
+------------------------------------------------------------------------------------------------
+ #002 Change a quantity of added product in the bag
+
+Precondition:
+ 1. The site [https://shop-drevol.vercel.app/] is opened
+ 2. There are products in stock
+
+Steps:
+ 1. Open the burger menu
+ 2. Select a products category (e.g. Body care)
+ 3. Click on the "ADD TO BAG" button under a product
+ 4. Navigate to the bag
+ 5. Increase the quantity of the added product by 1
+
+
+Expected result:
+ 1. The product quantity is increased by 1
+ 2. Subtotal price of the products and Total price are increased
+
+Post condition:
+ 1. Delete the product from the bag
+
+------------------------------------------------------------------------------------------------
+ #003 Find a product via the "Search" button
+
+Precondition:
+ 1. The site [https://shop-drevol.vercel.app/] is opened
+ 2. There are products in stock
+
+ Steps:
+ 1. Click on the "Search" icon
+ 2. Enter a product name (e.g. Massaging Oil) in the search field
+ 3. Click on the "Search" button
+
+Expected result:
+ 1. The product from the input field is found and displayed on the page
+  - check the product price
+  - check the name of the product
+
+------------------------------------------------------------------------------------------------
+
+#004 Possibility to filter products by type
+
+Precondition:
+ 1. The site [https://shop-drevol.vercel.app/] is opened
+ 2. There are products with the "Peels" type in stock
+
+Steps:
+ 1. Click on the "View products" button
+ 2. Check the "Peels" checkbox in the filter section
+ 3. Click on the "Search" button
+
+
+Expected result:
+ 1. Only products with the "Peels" type is displayed
+  - check by the "peel" subtitle
+
+
+------------------------------------------------------------------------------------------------
+
+#005 Log in with a not registered phone number
+
+Precondition:
+ 1. The site [https://shop-drevol.vercel.app/] is opened
+ 2. There is a not registered phone number (e.g. +380951112233)
+
+Steps:
+ 1. Click on the profile icon
+ 2. Click on the "LOG IN" button
+ 3. Enter the not registered phone number in the "Phone" field
+ 4. Click on the "GET AN SMS" button
+
+
+Expected result:
+ 1. The "Phone number not found" notification is displayed
+ 2. The login page is still opened, user is not redirected on the next page
+
