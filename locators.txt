@@ -1,0 +1,42 @@
+#Home page
+ burgerMenu - "//button[@id='burgerBtn']"
+ searchIcon - "//button[@class='css-ojnlvt']"
+ profileIcond - "//*[@class='css-1pr1sot']"
+ bagIcon - "//*[@class='css-yx58nr']"
+ viewProductsButton - "//*[@href='/products' and @class='button']"
+ searchInputField - "//input[@placeholder='Write here']"
+ searchButtonInInputField - "//button[text()='SEARCH']"
+
+#Burger menu
+ bodyCateOption - "//a[@class='link' and contains(@href, '/products?categories=Body care')]/h3"
+
+#Products page
+ addToBagProduct - "//*[@href='/product/5489f4e2-a177-4957-84ff-3fddebecd480']//..//button"
+ productAddToBagNotif - "//*/div[contains(text(),'Product added to cart')]"
+ oneItemInBag - "//*[@href='/basket']/span[text()='1']"
+ priceOfSearchedOilProduct - "//*[@class='css-g0fl43' and text()='37.85']"
+ titleOfSearchedOilProduct - "//*[@class='css-19d4yc6' and text()='Massaging Oil']"
+ filterByPeels - "//input[@type='checkbox' and @value='Peels']"
+ searchByFilters - "//button[@class='button css-zu1gxv']"
+ peelsProducts - "//*[@class='css-1vn32xo' and text()='Peels']"
+
+#Bag
+ productOilInBag - "//*[text()='Massaging Oil']"
+ priceOfProductInBag - "//p[@class='css-pzofwx' and text()='37.85']"
+ subTotalPriceOfOneOilInBag - "//p[@class='css-1v8fwkm' and text()='37.85']"
+ subTotalPriceOfTwoOilsInBag - "//p[@class='css-1v8fwkm' and text()='75.7']"
+ TotalPriceOfOneOilProduct - "//div[@class='bottom css-1wbf64e']/p[text()='37.85']"
+ TotalPriceOfTwoOilProducts - "//div[@class='bottom css-1wbf64e']/p[text()='75.7']"
+ IncreaseQuantityOfProductInBag - "//*[@d='M8 3.333v9.334M3.336 8h9.333']//.."
+ DecreaseQuantityOfProductInBag - "//*[@d='M3.336 8h9.333']//.."
+ quantityOfProductInBag=2 - "//*[@class='css-14qn862']/input[@type='text' and @value='2']"
+ quantityOfProductInBag=1 - "//*[@class='css-14qn862']/input[@type='text' and @value='1']"
+ removeProductFromBag - "//*[@class='css-1q17b8j']"
+
+ #Register page
+logInButton - //*[@href="/login"]
+
+ #Login page
+phoneField - "//input[@placeholder="Enter phone number"]"
+getAnSmsButton - "//*[@class='button ']/span[text()='Get an SMS']"
+errorPhoneNotFound - "//*[text()='Phone number not found']"
