@@ -3,7 +3,7 @@ package org.pages;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-abstract public class ParrentPage extends CommonActionsWithElements{
+abstract public class ParrentPage extends CommonActionsWithElements {
     protected String baseUrl = "https://shop-drevol.vercel.app/";
 
     public ParrentPage(WebDriver webDriver) {

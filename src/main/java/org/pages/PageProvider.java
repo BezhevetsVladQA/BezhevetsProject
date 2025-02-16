@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PageProvider {
     private WebDriver webDriver;
+
     public PageProvider(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
@@ -12,7 +13,6 @@ public class PageProvider {
     public HomePage getHomePage() {
         return new HomePage(webDriver);
     }
-
 
 
 }
