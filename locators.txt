@@ -11,7 +11,9 @@
  bodyCateOption - "//a[@class='link' and contains(@href, '/products?categories=Body care')]/h3"
 
 #Products page
- addToBagProduct - "//*[@href='/product/5489f4e2-a177-4957-84ff-3fddebecd480']//..//button"
+ headerBodyCare - "//h1[text()='Body care']"
+ addToBagOilProduct - "//*[@href='/product/5489f4e2-a177-4957-84ff-3fddebecd480']//..//button"
+ addToBagGommageProduct - "//*[@href="/product/57d5d4e9-4c0b-4398-8c9f-5072f75699fb"]//..//button"
  productAddToBagNotif - "//*/div[contains(text(),'Product added to cart')]"
  oneItemInBag - "//*[@href='/basket']/span[text()='1']"
  priceOfSearchedOilProduct - "//*[@class='css-g0fl43' and text()='37.85']"
@@ -22,16 +24,18 @@
 
 #Bag
  productOilInBag - "//*[text()='Massaging Oil']"
+ productGommageInBag - "//h2[text()='Gommage']"
  priceOfProductInBag - "//p[@class='css-pzofwx' and text()='37.85']"
- subTotalPriceOfOneOilInBag - "//p[@class='css-1v8fwkm' and text()='37.85']"
- subTotalPriceOfTwoOilsInBag - "//p[@class='css-1v8fwkm' and text()='75.7']"
- TotalPriceOfOneOilProduct - "//div[@class='bottom css-1wbf64e']/p[text()='37.85']"
- TotalPriceOfTwoOilProducts - "//div[@class='bottom css-1wbf64e']/p[text()='75.7']"
+ subTotalPriceOfOneOilInBag - "//p[@class='css-1v8fwkm' and text()='15']"
+ subTotalPriceOfTwoOilsInBag - "//p[@class='css-1v8fwkm' and text()='30']"
+ TotalPriceOfOneOilProduct - "//div[@class='bottom css-1wbf64e']/p[text()='15']"
+ TotalPriceOfTwoOilProducts - "//div[@class='bottom css-1wbf64e']/p[text()='30']"
  IncreaseQuantityOfProductInBag - "//*[@d='M8 3.333v9.334M3.336 8h9.333']//.."
  DecreaseQuantityOfProductInBag - "//*[@d='M3.336 8h9.333']//.."
  quantityOfProductInBag=2 - "//*[@class='css-14qn862']/input[@type='text' and @value='2']"
  quantityOfProductInBag=1 - "//*[@class='css-14qn862']/input[@type='text' and @value='1']"
  removeProductFromBag - "//*[@class='css-1q17b8j']"
+ headerEmptyBag - "//h1[contains(text(), "haven't added any items to your bag yet.")]"
 
  #Register page
 logInButton - //*[@href="/login"]

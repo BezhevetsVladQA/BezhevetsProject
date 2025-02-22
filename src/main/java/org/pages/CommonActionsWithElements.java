@@ -50,6 +50,37 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected boolean isElementVisibleWithOutClickable(WebElement webElement, String elementName) {
+        try {
+            boolean state = webElement.isDisplayed();
+            if (state) {
+                logger.info(elementName + " Element is displayed");
+            } else {
+                logger.info(elementName + " Element is not displayed");
+            }
+            return state;
+        } catch (Exception e) {
+            logger.info(elementName +" is not found");
+            return false;
+        }
+    }
+
+    protected boolean isElementVisible(WebElement webElement, String elementName) {
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+        try {
+            boolean state = webElement.isDisplayed();
+            if (state) {
+                logger.info(elementName + " Element is displayed");
+            } else {
+                logger.info(elementName + " Element is not displayed");
+            }
+            return state;
+        } catch (Exception e) {
+            logger.info("Element is not found");
+            return false;
+        }
+    }
+
     protected void clickOnElement(WebElement webElement) {
         try {
             webDriverWait_30.until(ExpectedConditions.elementToBeClickable(webElement));
@@ -76,8 +107,12 @@ public class CommonActionsWithElements {
         Assert.assertTrue("Element is not visible", isElementVisible(webElement));
     }
 
-    protected void checkIsElementNotVisible(WebElement webElement) {
-        Assert.assertFalse("Element is visible", isElementVisible(webElement));
+    protected void checkIsElementVisible(WebElement webElement, String elementName) {
+        Assert.assertTrue(elementName + " is not visible", isElementVisible(webElement, elementName));
+    }
+
+    protected void checkIsElementNotVisible(WebElement webElement, String elementName) {
+        Assert.assertFalse(elementName + " is visible", isElementVisibleWithOutClickable(webElement, elementName));
     }
 
     protected void clearAndEnterTextToElement(WebElement webElement, String text) {
