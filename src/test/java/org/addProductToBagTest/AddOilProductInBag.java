@@ -9,12 +9,15 @@ public class AddOilProductInBag extends BaseTest {
         pageProvider.getHomePage().openPage()
                 .openBurgerMenu()
                 .openBodyCareCategory()
+                .checkIsBodyCareHeaderVisible()
                 .addOilProductToBag()
                 .checkIsProductAddToBagNotifVisible()
                 .checkIsOneItemInBagVisible()
                 .clickOnAddedProdctNotif()
                 .openBag()
-                .checkIsProductOilInBagVisible();
-
+                .checkIsProductOilInBagVisible()
+                .removeProductFromBag()
+                .checkIsProductOilInBagNotVisible()
+                .checkIsEmptyBagMessageVisible();
     }
 }
