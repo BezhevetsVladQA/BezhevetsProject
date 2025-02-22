@@ -1,8 +1,10 @@
 package org.pages;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 
 public class ProductsPage extends ParrentPage {
 
@@ -24,6 +26,24 @@ public class ProductsPage extends ParrentPage {
     @FindBy(xpath = "//h1[text()='Body care']")
     private WebElement bodyCareHeader;
 
+    @FindBy(xpath = "//*[@class='css-g0fl43' and text()='38']")
+    private WebElement priceOfSearchedOilProduct;
+
+    @FindBy(xpath = "//*[@class='css-19d4yc6' and text()='Massaging Oil']")
+    private WebElement titleOfSearchedOilProduct;
+
+    @FindBy(xpath = "//h1[text()='Results']")
+    private WebElement resultsHeader;
+
+    @FindBy(xpath = "//*[@class=\"css-vvu7zn\"]//..//p[text()='Peels']")
+    private WebElement peelsCheckbox;
+
+    @FindBy(xpath = "//button[@class='button css-zu1gxv']")
+    private WebElement searchByFilterButton;
+
+    @FindBy(xpath = "//*[@class='css-1vn32xo' and text()='Peels']")
+    private WebElement peelsProducts;
+
     public ProductsPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -31,6 +51,11 @@ public class ProductsPage extends ParrentPage {
     @Override
     protected String getRelativeUrl() {
         return "products";
+    }
+
+    public ProductsPage checkIsRedirectToProductsPage() {
+        checkUrl();
+        return this;
     }
 
     public ProductsPage addOilProductToBag() {
@@ -64,7 +89,35 @@ public class ProductsPage extends ParrentPage {
     }
 
     public BagPage openBag() {
-        clickOnElement(bagIcon, "Bag icon");
+        clickOnElementWithWaitAfter(bagIcon, "Bag icon");
         return new BagPage(webDriver);
     }
+
+    public ProductsPage checkIsResultsPageIsOpened() {
+        checkIsElementVisible(resultsHeader, "Results header");
+        return this;
+    }
+
+    public ProductsPage checkIsOilProductOilIsFound() {
+        checkIsElementVisible(titleOfSearchedOilProduct, "Title of searched oil product");
+        checkIsElementVisible(priceOfSearchedOilProduct, "Price of searched oil product");
+        return this;
+    }
+
+    public ProductsPage setPeelsCheckbox() {
+        setCheckboxAsChecked(peelsCheckbox);
+        return this;
+    }
+
+    public ProductsPage clickOnSearchByFilterButton() {
+        clickOnElementWithWaitAfter(searchByFilterButton, "Search button");
+        return this;
+    }
+
+    public ProductsPage checkIsOnlyPeelsProductsVisible() {
+        checkOnlyPeelsElementsPresent(peelsProducts);
+        return this;
+    }
+
+
 }

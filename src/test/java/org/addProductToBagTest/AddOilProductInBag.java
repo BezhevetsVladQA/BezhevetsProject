@@ -15,6 +15,7 @@ public class AddOilProductInBag extends BaseTest {
                 .checkIsOneItemInBagVisible()
                 .clickOnAddedProdctNotif()
                 .openBag()
+                .checkIsRedirectToBagPage()
                 .checkIsProductOilInBagVisible()
                 .removeProductFromBag()
                 .checkIsProductOilInBagNotVisible()

@@ -16,11 +16,12 @@
  addToBagGommageProduct - "//*[@href="/product/57d5d4e9-4c0b-4398-8c9f-5072f75699fb"]//..//button"
  productAddToBagNotif - "//*/div[contains(text(),'Product added to cart')]"
  oneItemInBag - "//*[@href='/basket']/span[text()='1']"
- priceOfSearchedOilProduct - "//*[@class='css-g0fl43' and text()='37.85']"
+ priceOfSearchedOilProduct - "//*[@class='css-g0fl43' and text()='38']"
  titleOfSearchedOilProduct - "//*[@class='css-19d4yc6' and text()='Massaging Oil']"
  filterByPeels - "//input[@type='checkbox' and @value='Peels']"
  searchByFilters - "//button[@class='button css-zu1gxv']"
  peelsProducts - "//*[@class='css-1vn32xo' and text()='Peels']"
+ headerResult - "//h1[text()='Results']"
 
 #Bag
  productOilInBag - "//*[text()='Massaging Oil']"
@@ -38,9 +39,9 @@
  headerEmptyBag - "//h1[contains(text(), "haven't added any items to your bag yet.")]"
 
  #Register page
-logInButton - //*[@href="/login"]
+logInButton - "//*[@href="/login"]"
 
  #Login page
-phoneField - "//input[@placeholder="Enter phone number"]"
+phoneField - "//input[@placeholder='Enter phone number']"
 getAnSmsButton - "//*[@class='button ']/span[text()='Get an SMS']"
 errorPhoneNotFound - "//*[text()='Phone number not found']"

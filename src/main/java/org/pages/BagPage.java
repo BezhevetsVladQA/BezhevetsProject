@@ -48,6 +48,11 @@ public class BagPage extends ParrentPage {
         return "basket";
     }
 
+    public BagPage checkIsRedirectToBagPage() {
+        checkUrl();
+        return this;
+    }
+
     public BagPage removeProductFromBag() {
         clickOnElement(removeProductFromBag, "Remove product from bag");
         return this;

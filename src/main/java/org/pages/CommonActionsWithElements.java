@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.utils.ConfigProvider;
 
 import java.time.Duration;
+import java.util.List;
 
 public class CommonActionsWithElements {
     protected WebDriver webDriver;
@@ -23,15 +24,6 @@ public class CommonActionsWithElements {
         webDriverWait_10 = new WebDriverWait(webDriver, Duration.ofSeconds(ConfigProvider.configProperties.TIME_FOR_EXPLICIT_WAIT_LOW()));
         webDriverWait_15 = new WebDriverWait(webDriver, Duration.ofSeconds(ConfigProvider.configProperties.TIME_FOR_DEFAULT_WAIT()));
         webDriverWait_30 = new WebDriverWait(webDriver, Duration.ofSeconds(ConfigProvider.configProperties.TIME_FOR_EXPLICIT_WAIT_HIGH()));
-    }
-
-    protected boolean isElementVisible(String locator) {
-        try {
-            return isElementVisible(webDriver.findElement(By.xpath(locator)));
-        } catch (Exception e) {
-            logger.info("Element is not found");
-            return false;
-        }
     }
 
     protected boolean isElementVisible(WebElement webElement) {
@@ -103,6 +95,18 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void clickOnElementWithWaitAfter(WebElement webElement, String elementName) {
+        try {
+            webDriverWait_30.until(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
+            logger.info(elementName + " element was clicked");
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            logger.error("Can not work with element " + elementName);
+            printErrorAndStopTest(e);
+        }
+    }
+
     protected void checkIsElementVisible(WebElement webElement) {
         Assert.assertTrue("Element is not visible", isElementVisible(webElement));
     }
@@ -138,5 +142,31 @@ public class CommonActionsWithElements {
     private void printErrorAndStopTest(Exception e) {
         logger.error("Can not work with element " + e);
         Assert.fail("Can't work with element " + e);
+    }
+
+    protected void setCheckboxAsChecked(WebElement webElement) {
+        if (!webElement.isSelected()) {
+            clickOnElement(webElement, "Unique post checkbox");
+        } else {
+            logger.info("Checkbox is already checked");
+        }
+    }
+
+    public void checkOnlyPeelsElementsPresent(WebElement peelsProductElement) {
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(peelsProductElement));
+
+        List<WebElement> allPeelsElements = webDriver.findElements(By.xpath("//*[@class='" + peelsProductElement.getAttribute("class") + "']"));
+
+        // Only with 'Peels'
+        for (WebElement element : allPeelsElements) {
+            String text = element.getText().trim();
+            // Start from 'Peels'
+            if (!text.matches("^Peels.*")) {
+                Assert.fail("Found an item with text other than 'Peels': " + text);
+            }
+        }
+
+        logger.info("Only 'Peels' are displayed on the page!");
     }
 }

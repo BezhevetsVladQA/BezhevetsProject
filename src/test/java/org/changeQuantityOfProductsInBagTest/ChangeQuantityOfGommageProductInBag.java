@@ -15,6 +15,7 @@ public class ChangeQuantityOfGommageProductInBag extends BaseTest {
                 .checkIsOneItemInBagVisible()
                 .clickOnAddedProdctNotif()
                 .openBag()
+                .checkIsRedirectToBagPage()
                 .checkIsProductGommageInBagVisible()
                 .checkIsCurrentQuantityOfProductIsOne()
                 .checkIsSubTotalPriceOfOneGommageInBagVisible()
