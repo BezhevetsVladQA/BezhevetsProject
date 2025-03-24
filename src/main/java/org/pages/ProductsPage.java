@@ -1,9 +1,17 @@
 package org.pages;
 
 
+import org.apache.log4j.Logger;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 
 public class ProductsPage extends ParrentPage {
@@ -47,6 +55,8 @@ public class ProductsPage extends ParrentPage {
     public ProductsPage(WebDriver webDriver) {
         super(webDriver);
     }
+
+    Logger logger = Logger.getLogger(getClass());
 
     @Override
     protected String getRelativeUrl() {
@@ -115,8 +125,23 @@ public class ProductsPage extends ParrentPage {
     }
 
     public ProductsPage checkIsOnlyPeelsProductsVisible() {
-        checkOnlyPeelsElementsPresent(peelsProducts);
-        return this;
+
+            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
+            wait.until(ExpectedConditions.visibilityOf(peelsProducts));
+
+            List<WebElement> allPeelsElements = webDriver.findElements(By.xpath("//*[@class='" + peelsProducts.getAttribute("class") + "']"));
+
+            // Only with 'Peels'
+            for (WebElement element : allPeelsElements) {
+                String text = element.getText().trim();
+                // Start from 'Peels'
+                if (!text.matches("^Peels.*")) {
+                    Assert.fail("Found an item with text other than 'Peels': " + text);
+                }
+            }
+
+            logger.info("Only 'Peels' are displayed on the page!");
+            return this;
     }
 
 

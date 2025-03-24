@@ -2,7 +2,6 @@ package org.pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.utils.ConfigProvider;
 
 import java.time.Duration;
-import java.util.List;
 
 public class CommonActionsWithElements {
     protected WebDriver webDriver;
@@ -152,21 +150,4 @@ public class CommonActionsWithElements {
         }
     }
 
-    public void checkOnlyPeelsElementsPresent(WebElement peelsProductElement) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOf(peelsProductElement));
-
-        List<WebElement> allPeelsElements = webDriver.findElements(By.xpath("//*[@class='" + peelsProductElement.getAttribute("class") + "']"));
-
-        // Only with 'Peels'
-        for (WebElement element : allPeelsElements) {
-            String text = element.getText().trim();
-            // Start from 'Peels'
-            if (!text.matches("^Peels.*")) {
-                Assert.fail("Found an item with text other than 'Peels': " + text);
-            }
-        }
-
-        logger.info("Only 'Peels' are displayed on the page!");
-    }
 }
